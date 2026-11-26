@@ -14,19 +14,27 @@ $('music-toggle').onclick=function(){
 };
 document.addEventListener('visibilitychange',function(){if(document.hidden)bgm.pause()});
 window.addEventListener('beforeunload',function(){bgm.pause()});
-// one click: envelope opens, names reveal, then it flows into the hero
-var opened=false;
+// one tap: the intro video plays, then it fades into the hero
+var opened=false,done=false;
+function finish(){
+  if(done)return;done=true;
+  $('site').hidden=false;
+  document.querySelector('.hero').classList.add('enter');
+  $('cover').classList.add('gone');
+  document.body.classList.remove('locked');
+}
 $('cover').onclick=function(){
-  if(opened)return;opened=true;
+  if(opened)return finish();
+  opened=true;
   $('cover').classList.add('revealing');
+  // same tap unlocks audio
   bgm.volume=.6;bgm.play().catch(function(){});musicPlaying=true;updateMusicIcon();
-  setTimeout(function(){
-    $('site').hidden=false;
-    document.querySelector('.hero').classList.add('enter');
-    $('cover').classList.add('opening');
-    setTimeout(function(){$('cover').classList.add('gone')},500);
-    setTimeout(function(){document.body.classList.remove('locked')},1800);
-  },4600);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return finish();
+  var op=$('opener');
+  op.addEventListener('ended',finish,{once:true});
+  op.addEventListener('error',finish,{once:true});
+  setTimeout(finish,12000);
+  var pr=op.play();if(pr&&pr.catch)pr.catch(finish);
 };
 // countdown
 function tick(){
@@ -35,6 +43,7 @@ function tick(){
   $('d').textContent=p(d);$('h').textContent=p(h);$('m').textContent=p(m);$('s').textContent=p(s);
   $('line').textContent=d+' days '+h+' hours '+m+' min '+s+' sec';
 }
+$('cover').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();$('cover').onclick();}});
 tick();setInterval(tick,1000);
 // calendar (Dec 2026 starts on Tuesday)
 var g=$('grid'),html='';

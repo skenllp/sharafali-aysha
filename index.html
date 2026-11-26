@@ -12,7 +12,9 @@
 <meta name="twitter:image" content="https://sharafali-aysha.vercel.app/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/cover.jpg">
+<link rel="preload" as="image" href="assets/hero.png">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="locked">
@@ -23,43 +25,38 @@
   <svg id="music-icon-pause" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
 </button>
 
-<section id="cover">
-  <div class="cover-glow" aria-hidden="true"></div>
-  <div class="env-stage">
-    <div class="env">
-      <div class="env-back" aria-hidden="true"></div>
-      <div class="env-card">
-        <div class="card-face">
-          <span class="card-orn" aria-hidden="true">&#10070;</span>
-          <p class="card-eyebrow">Together with our families</p>
-          <h1 class="card-names">Sharaf Ali</h1>
-          <span class="card-amp" aria-hidden="true">&amp;</span>
-          <h1 class="card-names">Aysha</h1>
-          <span class="card-rule" aria-hidden="true"></span>
-          <p class="card-sub">Wedding Reception</p>
-          <p class="card-date">Sunday &middot; 6 December 2026</p>
-        </div>
-      </div>
-      <div class="env-front" aria-hidden="true"></div>
-      <div class="env-flap" aria-hidden="true"></div>
-      <div class="env-seal" aria-hidden="true"><span>S&amp;A</span></div>
-    </div>
+<section id="cover" role="button" tabindex="0" aria-label="Open the invitation">
+  <div class="cv">
+    <video id="opener" src="assets/intro.mp4" poster="assets/cover.jpg" muted playsinline preload="auto"></video>
+    <div class="cvTop"><div class="bless" lang="ar">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1618;&#1605;&#1614;&#1648;&#1606;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1616;&#1610;&#1605;&#1616;</div></div>
+    <div class="tap">TAP TO OPEN</div>
   </div>
-  <button id="envelope">Tap the envelope to open</button>
 </section>
 
 <main id="site" hidden>
-  <section class="hero" style="background-image:url('assets/img.jpeg')">
-    <div class="hero-overlay"></div>
-    <p class="small">Wedding Reception</p>
-    <h1 class="script big">Sharaf Ali</h1><p class="amp">&amp;</p><h1 class="script big">Aysha</h1>
-    <p class="meta">Sunday, 6 December 2026 · 11:00 AM to 2:30 PM<br>Airport Garden Convention Centre, Karippur</p>
+  <section class="hero">
+    <div class="hero-in">
+      <div class="bless in" lang="ar">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1618;&#1605;&#1614;&#1648;&#1606;&#1616; &#1575;&#1604;&#1585;&#1617;&#1614;&#1581;&#1616;&#1610;&#1605;&#1616;</div>
+      <div class="hcap in">
+        <div>BY THE GRACE OF ALLAH,</div>
+        <div style="margin-top:10px">INVITE YOU TO WITNESS AND BLESS THE BEGINNING OF A BEAUTIFUL JOURNEY OF LOVE AND TOGETHERNESS.</div>
+      </div>
+      <div class="names in"><span>Sharaf Ali</span><em>and</em><span>Aysha</span></div>
+      <div class="dia in"><i></i><b></b><i></i></div>
+      <div class="hcap in">SUNDAY</div>
+      <div class="hdate in">6 December 2026</div>
+      <div class="dia in"><i></i><b></b><i></i></div>
+      <div class="hcap in">AIRPORT GARDEN CONVENTION CENTRE, KARIPPUR</div>
+      <div class="hline in">in shaa Allah, we would love to have you with us</div>
+      <svg class="sprig in" viewBox="0 0 34 52" fill="none" stroke="currentColor" aria-hidden="true"><path d="M1 51V17a16 16 0 0 1 32 0v34z"/><path d="M17 44V13M17 36c-3-1-6-3-7-6 3 0 6 2 7 4m0-2c3-1 6-3 7-6-3 0-6 2-7 4m0-6c-3-1-5-3-6-6 3 0 5 2 6 4m0-2c3-1 5-3 6-6-3 0-5 2-6 4"/></svg>
+      <div class="hcap sdown in">Scroll down</div>
+    </div>
   </section>
 
   <section class="paper">
-    <div class="photo"><img src="assets/img.jpeg" alt="Sharaf Ali and Aysha" loading="lazy"></div>
+    <!-- <div class="photo"><img src="assets/img.jpeg" alt="Sharaf Ali and Aysha" loading="lazy"></div> -->
     <p class="note">With hearts full of joy, we invite you and your family to celebrate our wedding reception. Your presence and prayers will make our celebration complete, and we look forward to sharing this blessed day with you.</p>
-    <p class="note">With Love,<br>Sharaf Ali P.A &amp; Aysha Faizal<br><span style="font-size:0.95rem;opacity:0.85;font-style:normal;letter-spacing:0.05em">(Physiotherapists)</span></p>
+    <p class="note">With Love,<br>Sharaf Ali P.A &amp; Aysha Faizal</p>
     <p class="label">Reception</p>
     <p class="note">Sunday, 6 December 2026<br>11:00 AM – 2:30 PM</p>
     <h2 class="script">Counting Down to Forever</h2>
@@ -69,6 +66,39 @@
       <div><b id="m">--</b><span>Minutes</span></div><i>:</i>
       <div><b id="s">--</b><span>Seconds</span></div>
     </div>
+  </section>
+
+  <section class="beige verses">
+    <h2 class="script">Blessings from the Qur&rsquo;an</h2>
+    <span class="v-orn" aria-hidden="true">&#10070;</span>
+
+    <blockquote class="verse">
+      <p class="ar" lang="ar" dir="rtl">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً</p>
+      <span class="sep" aria-hidden="true"></span>
+      <p class="vtext">&ldquo;And of His signs is that He created for you from among yourselves mates, that you may find tranquillity in them; and He placed between you affection and mercy.&rdquo;</p>
+      <cite>Surah Ar-Rum &middot; 30 : 21</cite>
+    </blockquote>
+
+    <blockquote class="verse">
+      <p class="ar" lang="ar" dir="rtl">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</p>
+      <span class="sep" aria-hidden="true"></span>
+      <p class="vtext">&ldquo;Our Lord, grant us from among our spouses and offspring comfort to our eyes, and make us an example for the righteous.&rdquo;</p>
+      <cite>Surah Al-Furqan &middot; 25 : 74</cite>
+    </blockquote>
+
+    <blockquote class="verse">
+      <p class="ar" lang="ar" dir="rtl">بَارَكَ اللَّهُ لَكَ، وَبَارَكَ عَلَيْكَ، وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+      <span class="sep" aria-hidden="true"></span>
+      <p class="vtext">&ldquo;May Allah bless you, and shower His blessings upon you, and join you together in goodness.&rdquo;</p>
+      <cite>Prophetic du&rsquo;a &middot; Sunan Abi Dawud</cite>
+    </blockquote>
+
+    <blockquote class="verse">
+      <p class="ar" lang="ar" dir="rtl">خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ</p>
+      <span class="sep" aria-hidden="true"></span>
+      <p class="vtext">&ldquo;The best of you are those who are best to their families.&rdquo;</p>
+      <cite>Prophet Muhammad &#65018; &middot; Sunan at-Tirmidhi</cite>
+    </blockquote>
   </section>
 
   <section class="dark info">
@@ -84,8 +114,8 @@
   <section class="beige">
     <h2 class="script">Gallery</h2>
     <div class="gallery-container">
-      <img class="wide gallery-img" src="assets/img2.jpeg" alt="Gallery photo 1" loading="lazy">
-      <img class="wide gallery-img" src="assets/dsf.jpeg" alt="Gallery photo 2" loading="lazy">
+      <figure class="gcard"><img src="assets/childhood.png" alt="Sharaf Ali and Aysha as children" loading="lazy"></figure>
+      <figure class="gcard"><img src="assets/img.jpeg" alt="Sharaf Ali and Aysha" loading="lazy"></figure>
     </div>
   </section>
 
@@ -93,7 +123,6 @@
     <h2 class="script left">Our Families</h2>
     <div class="card">
       <h3 class="script">Sharaf Ali P.A</h3>
-      <p class="small" style="color:var(--brown);letter-spacing:0.15em;margin-top:-0.5rem;margin-bottom:0.8rem;text-transform:uppercase;font-size:0.75rem">Physiotherapist</p>
       <hr>
       <p>S/o Kuttiali Master P.A<br>&amp; Shareefa K.T</p>
       <p><strong>Brothers</strong>Muhammed Shamseer<br>Safvan Ali</p>
@@ -108,7 +137,6 @@
     </div>
     <div class="card">
       <h3 class="script">Aysha Faizal</h3>
-      <p class="small" style="color:var(--brown);letter-spacing:0.15em;margin-top:-0.5rem;margin-bottom:0.8rem;text-transform:uppercase;font-size:0.75rem">Physiotherapist</p>
       <hr>
       <p>D/o Faizal P.P<br>&amp; Sumayya K.P</p>
       <p><strong>Brother</strong>Mohammed Zunoon Faizal</p>
