@@ -59,17 +59,26 @@ $('addcal').onclick=function(){
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
   a.download='sharaf-aysha-reception.ics';a.click();
 };
-// wishes (stored in this browser only — see README to connect Supabase)
-var KEY='sharaf-aysha-wishes';
-function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
-function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
-function render(){$('wishes').innerHTML=load().map(function(w){return '<div class="wcard"><b>'+esc(w.n)+'</b><p>'+esc(w.m)+'</p></div>'}).join('')}
-$('send').onclick=function(){
-  var n=$('wn').value.trim(),m=$('wm').value.trim();
-  if(!n||!m){alert('Please enter your name and your wishes.');return}
-  var l=load();l.unshift({n:n,m:m});
-  try{localStorage.setItem(KEY,JSON.stringify(l.slice(0,50)))}catch(e){}
-  $('wn').value='';$('wm').value='';render();
+// rsvp -> whatsapp
+var WA='919747267341',WHO='Sharaf Ali & Aysha',going=true;
+function setAtt(v){
+  going=v;
+  $('rYes').setAttribute('aria-pressed',v);
+  $('rNo').setAttribute('aria-pressed',!v);
+  $('rCountWrap').hidden=!v;
+}
+$('rYes').onclick=function(){setAtt(true)};
+$('rNo').onclick=function(){setAtt(false)};
+setAtt(true);
+$('rSend').onclick=function(){
+  var n=$('rName').value.trim(),note=$('rNote').value.trim(),t=$('rToast');
+  if(!n){t.className='rsvp-toast err';t.textContent='Please enter your name.';$('rName').focus();return}
+  var msg=going
+    ? 'Assalamu alaikum! This is '+n+'. In shaa Allah, we will be joining the wedding reception of '+WHO+' on 6 December 2026. Guests: '+$('rCount').value+'.'
+    : 'Assalamu alaikum! This is '+n+'. Sadly I will not be able to attend the wedding reception of '+WHO+', but you are both in my prayers.';
+  if(note)msg+=String.fromCharCode(10,10)+note;
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
+  t.className='rsvp-toast ok';
+  t.textContent='Thank you, '+n+'! Please press send in WhatsApp to finish.';
 };
-render();
 })();
