@@ -60,22 +60,11 @@ $('addcal').onclick=function(){
   a.download='sharaf-aysha-reception.ics';a.click();
 };
 // rsvp -> whatsapp
-var WA='919747267341',WHO='Sharaf Ali & Aysha',going=true;
-function setAtt(v){
-  going=v;
-  $('rYes').setAttribute('aria-pressed',v);
-  $('rNo').setAttribute('aria-pressed',!v);
-  $('rCountWrap').hidden=!v;
-}
-$('rYes').onclick=function(){setAtt(true)};
-$('rNo').onclick=function(){setAtt(false)};
-setAtt(true);
+var WA='919747267341',WHO='Sharaf Ali & Aysha';
 $('rSend').onclick=function(){
   var n=$('rName').value.trim(),note=$('rNote').value.trim(),t=$('rToast');
   if(!n){t.className='rsvp-toast err';t.textContent='Please enter your name.';$('rName').focus();return}
-  var msg=going
-    ? 'Assalamu alaikum! This is '+n+'. In shaa Allah, we will be joining the wedding reception of '+WHO+' on 6 December 2026. Guests: '+$('rCount').value+'.'
-    : 'Assalamu alaikum! This is '+n+'. Sadly I will not be able to attend the wedding reception of '+WHO+', but you are both in my prayers.';
+  var msg='Assalamu alaikum! This is '+n+'. In shaa Allah, we will be joining the wedding reception of '+WHO+' on 6 December 2026.';
   if(note)msg+=String.fromCharCode(10,10)+note;
   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
   t.className='rsvp-toast ok';
