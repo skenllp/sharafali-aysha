@@ -133,7 +133,7 @@ textarea{min-height:110px}::placeholder{color:#9e7552}
 .hero .in{opacity:0;transform:translateY(8px);transition:opacity 1.6s ease,transform 1.6s ease}
 .hero.enter .in{opacity:1;transform:none}
 .hero .bless{font:400 24px/1.4 'Amiri',serif;color:var(--hgoldt);direction:rtl;margin-bottom:8px}
-.hcap{font:600 12.5px/1.9 'Cormorant Garamond',serif;letter-spacing:.2em;text-transform:uppercase;color:var(--hsoft);text-wrap:balance}
+.hcap{font:600 12.5px/1.9 'Cormorant Garamond',serif;letter-spacing:.2em;text-transform:uppercase;color:#000;text-wrap:balance}
 .hero .names{font:400 min(44px,11vw)/1.15 'Pinyon Script',cursive;color:var(--hgoldt);white-space:nowrap;margin:26px 0 10px}
 .hero .names span,.hero .names em{display:block}
 .hero .names em{font:400 .6em/1.2 'Pinyon Script',cursive;margin:4px 0}
@@ -141,7 +141,10 @@ textarea{min-height:110px}::placeholder{color:#9e7552}
 .hero .dia i{width:44px;height:1px;background:var(--hline)}
 .hero .dia b{width:6px;height:6px;border:1px solid var(--hgold);transform:rotate(45deg)}
 .hdate{font:500 19px/1.25 'Cormorant Garamond',serif;letter-spacing:.18em;text-transform:uppercase;color:var(--hgoldt);margin-top:6px}
-.hline{font:400 19px/1.4 'Pinyon Script',cursive;color:var(--hsoft);margin-top:14px;text-wrap:balance}
+.hline{font:400 19px/1.4 'Pinyon Script',cursive;color:#000;margin-top:14px;text-wrap:balance}
 .sprig{width:34px;height:52px;margin:20px auto 0;display:block;color:var(--hgold)}
-.sdown{margin-top:24px}
+.sdown{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:9px}
+.sdown span{font:600 13px/1 'Cormorant Garamond',serif;letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;color:var(--hgoldt);text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.sarrow{width:21px;height:27px;stroke-width:1.5;color:var(--hgold);animation:sBob 2s ease-in-out infinite}
+@keyframes sBob{0%,100%{transform:translateY(0);opacity:.85}50%{transform:translateY(8px);opacity:1}}
 @media(prefers-reduced-motion:reduce){.hero .in{opacity:1;transform:none}}
